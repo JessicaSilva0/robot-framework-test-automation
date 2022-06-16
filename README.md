@@ -12,7 +12,7 @@ Comentários
 | **[customLibrary](customLibrary)**                 | Folder with REST clients WSDL from PSRM                                                  |
 | **[resources](resources)**                         | Folder for keywords created on robot                                                     |
 | **[resources/pageObjects](resources/pageObjects)** | Folder for Page Objects resources                                                        |
-| **[Testcase](Testcase)**                           | Folder for Test Case on Robot Framework                                                  |
+| **[testcase](testcase)**                           | Folder for Test Case on Robot Framework                                                  |
 | **[variables](variables)**                         | Folder for configure Test Case for different Environments                                |
 | **[Results](results)**                             | Folder for Test Execution output location                                                |
 
