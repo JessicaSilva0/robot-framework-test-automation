@@ -28,5 +28,3 @@ Login shoul be OK
     [Arguments]    ${username}    ${password}
     run keyword if    '${username}'=='${EMPTY}'     Error message required
     ...     ELSE IF   '${password}'=='${EMPTY}'     Error message required
-
-

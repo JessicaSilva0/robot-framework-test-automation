@@ -1,5 +1,4 @@
-variables/preprod/config-browser-variable.py/
-variables/preprod/credentials.py/
-variables/preprod/url-variable.py/
-results/
 
+/results/
+/variables/preprod/credentials.py
+/variables/preprod/url-variable.py
