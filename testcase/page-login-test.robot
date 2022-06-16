@@ -7,7 +7,7 @@ Resource     ../resources/pageObjects/page-login.robot
 Resource     ../resources/pageObjects/alert-msg.robot
 Variables    ../variables/%{ENVIRONMENT}/credentials.py
 Variables    ../variables/%{ENVIRONMENT}/url-variable.py
-Variables    ../variables/%{ENVIRONMENT}/config-browser-variables.py
+Variables    ../variables/%{ENVIRONMENT}/config-browser-variable.py
 
 
 *** Variables ***
