@@ -1,5 +1,5 @@
 *** Setting ***
-Documentation    page REGISTRATION FORM
+Documentation    Formulário de Cadastro
 Library    SeleniumLibrary
 Resource    ../resources/pageObjects/page-reg-form-resources.robot
 Resource    ../resources/pageObjects/page-reg-form.robot
@@ -14,13 +14,10 @@ ${username}     ${ADMIN_USER['username']}
 ${password}     ${ADMIN_USER['password']}
 
 *** Test Cases ***
-Criar NIF Singular
+Formulário de Cadastro - Contribuinte Singular
+     [Documentation]    Test Case para Criar NIF Singular com Sucesso
     Open Browser to Login Page SIGT
     Insert credentials Username and Password     ${username}     ${password}
-    wait until element is visible     ${frame_Main}
-    select frame                      ${frame_Main}
+    Select frame Page Principal
     Abrir Formulario de Cadastro
-    wait until element is visible     ${frame_uiMap}
-    select frame                      ${frame_uiMap}
-    Click nav form - Detalhes de Registo
-    select from list by value         ${TIPO_CONTR}     ${OPTION_TIPO_CONTR.Colectivo}
+    Cadastrar NIF Colectivo
