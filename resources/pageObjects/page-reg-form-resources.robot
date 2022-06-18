@@ -57,6 +57,21 @@ ${TIPO_TRIB_IEC}             id=boGroup_registrationDetails_subjectIECTaxation_a
 
 
 *** Keywords ***
+Open SubMenu - Formulários
+    [Arguments]     ${locator}
+    click element   ${locator}
+Selecionar Item - Formulário de Cadastro
+    [Arguments]     ${locator}
+    click element   ${locator}
+
+Adicionar novo Formulário
+    [Arguments]     ${locator}
+    click element   ${locator}
+
+Pesquisar Formulários
+    [Arguments]     ${locator}
+    click element   ${locator}
+
 Click nav form - Principal
     [Documentation]    Ir para Section Principal pelo NavForm
     click element      ${NAV_FORM_MAIN}
@@ -134,8 +149,18 @@ Click nav form - Documentos Anexados
     [Documentation]    Ir para Section Principal pelo NavForm
     click element       ${NAV_FORM_DOC_ANEXO}
 
-Abrir Formulario de Cadastro
-    Open Menu
-    Open SubMenu - Formulários                  ${MENU_FORM}
-    Selecionar Item - Formulário de Cadastro    ${SUBMENU_FORM}
-    Adicionar novo Formulário                   ${SUBMENU_ITEM_ADD}
+Select frame Page Principal
+    [Documentation]    Selecionar a pagina principal
+    wait until element is visible               ${frame_Main}
+    select frame                                ${frame_Main}
+
+Preencher Detalhes de Registo
+     select from list by value         ${TIPO_CONTR}          ${OPTION_TIPO_CONTR.Colectivo}
+     select from list by value         ${TIPO_CONTR_COLL}     ${OPTION_TIPO_CONTR_COLL.EMPRESA}
+     select from list by value         ${TIPO_IND_RESIDEN}    ${OPTION_TIPO_IND_RESIDEN.Residente}
+
+Preencher Enquadramento em Impostos
+    select from list by value          ${TIPO_REG_II}         ${OPTION_TIPO_REG_II.RegimeGeral}
+#   select from list by value          ${TIPO_GROUP_IRT}      ${OPTION_TIPO_GROUP_IRT.C}
+    select from list by value          ${TIPO_TRIB_IAC}       ${OPTION_TIPO_TRIB_IAC.nao}
+    select from list by value          ${TIPO_TRIB_IEC}       ${OPTION_TIPO_TRIB_IEC.nao}
