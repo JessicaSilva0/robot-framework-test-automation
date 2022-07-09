@@ -48,5 +48,6 @@ Cadastrar NIF Colectivo
     [Documentation]    Cadastrar nif colectivo
     Click nav form - Detalhes de Registo
     Preencher Detalhes de Registo
-    Click nav form - Enquadramento em Impostos
+    Click nav form - Show All
     Preencher Enquadramento em Impostos
+    Click nav form - Detalhes de Identificação de Contribuinte Colectivo

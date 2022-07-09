@@ -9,12 +9,9 @@ Variables    ../variables/%{ENVIRONMENT}/credentials.py
 Variables    ../variables/%{ENVIRONMENT}/url-variable.py
 Variables    ../variables/%{ENVIRONMENT}/config-browser-variable.py
 
-
 *** Variables ***
 ${username}     ${ADMIN_USER['username']}
 ${password}     ${ADMIN_USER['password']}
-
-
 
 *** Test Cases ***
 Sucessful SIGT Login
