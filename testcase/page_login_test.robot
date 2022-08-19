@@ -4,6 +4,7 @@ Documentation    SIGT PREPROD - TestCases to Login Page
 Library    SeleniumLibrary
 Library    Collections
 Resource     ../resources/pageObjects/page-login.robot
+Resource     ../resources/pageObjects/page-login-resources.robot
 Resource     ../resources/pageObjects/alert-msg.robot
 Variables    ../variables/%{ENVIRONMENT}/credentials.py
 Variables    ../variables/%{ENVIRONMENT}/url-variable.py
@@ -14,14 +15,9 @@ ${username}     ${ADMIN_USER['username']}
 ${password}     ${ADMIN_USER['password']}
 
 *** Test Cases ***
-Sucessful SIGT Login
-    [Documentation]    Iniciar Sessão no SIGT
-    [Tags]  Regressao
-    Open Browser to Login Page SIGT
-    Insert credentials Username and Password    ${username}   ${password}
+CT01 - page-login: Login Válido
+  [Documentation]  Validar Login
+  [Tags]           Regressão  Login
+  Login no SIGT    ${username}   ${password}
+  Login com Sucesso
 
-Login shoul be OK
-    [Documentation]    Check credentials ok
-    [Arguments]    ${username}    ${password}
-    run keyword if    '${username}'=='${EMPTY}'     Error message required
-    ...     ELSE IF   '${password}'=='${EMPTY}'     Error message required

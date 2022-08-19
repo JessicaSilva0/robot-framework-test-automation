@@ -6,7 +6,7 @@ Resource    ./resources/pageObjects/menus.robot
 *** Variables ***
 ${MENU_FORM}             xpath://*[contains(text(), "Formulários")]                 #Formulários
 ${SUBMENU_FORM}          xpath://*[contains(text(), "Formulário de Cadastro")]      #Formulários de Cadastro
-${SUBMENU_ITEM_ADD}      xpath://*[@id="cmregFormTabMenuAdd"]                   #Formulários de Cadastro - Adicionar
+${SUBMENU_ITEM_ADD}      xpath://*[@id="cmregaddTabMenu"]                   #Formulários de Cadastro - Adicionar
 ${SUBMENU_ITEM_SEARCH}   id=c1fusqTabMenu               #Formulários de Cadastro - Pesquisar
 
 

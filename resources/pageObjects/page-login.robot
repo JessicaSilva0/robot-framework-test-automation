@@ -1,5 +1,5 @@
 *** Setting ***
-Library    SeleniumLibrary
+Library    SeleniumLibraryOpen Browser to Login Page SIGT
 
 *** Variables ***
 ${LOGIN_USERNAME}   id=userId
