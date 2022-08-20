@@ -2,11 +2,11 @@
 Documentation    SIGT - TestCases to Login Page
 Library    SeleniumLibrary
 Library    Collections
-Resource     ../resources/pageObjects/page-login.robot
-Resource     ../resources/pageObjects/menus.robot
-Variables    ../variables/%{ENVIRONMENT}/credentials.py
-Variables    ../variables/%{ENVIRONMENT}/url-variable.py
-Variables    ../variables/%{ENVIRONMENT}/config-browser-variable.py
+Resource     ./resources/pageObjects/page-login.robot
+Resource     ./resources/pageObjects/menus.robot
+Variables    ./variables/%{ENVIRONMENT}/credentials.py
+Variables    ./variables/%{ENVIRONMENT}/url-variable.py
+Variables    ./variables/%{ENVIRONMENT}/config-browser-variable.py
 
 
 *** Variables ***
