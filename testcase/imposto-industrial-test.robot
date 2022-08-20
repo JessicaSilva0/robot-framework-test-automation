@@ -1,9 +1,9 @@
 *** Settings ***
-Documentation    SIGT - Imposto Industrial Declaração Anual
+Documentation    SIGT - Declaração Anual de Imposto Industrial
 
 Library    SeleniumLibrary
 Library    Collections
-Library    ScreenCapLibrary
+
 Resource     ../resources/pageObjects/page-login.robot
 Resource     ../resources/pageObjects/page-login-resources.robot
 Resource     ../resources/pageObjects/page-IISF-resources.robot
@@ -12,9 +12,10 @@ Resource     ../resources/pageObjects/menus.robot
 Variables    ../variables/%{ENVIRONMENT}/credentials.py
 Variables    ../variables/%{ENVIRONMENT}/url-variable.py
 Variables    ../variables/%{ENVIRONMENT}/config-browser-variable.py
+Variables    ../variables/%{ENVIRONMENT}/imposto-industrial-variables.py
 
 Suite Setup        Login no SIGT   ${username}    ${password}
-Suite Teardown     Close Browser
+#Suite Teardown     Close Browser
 
 *** Variables ***
 ${username}     ${ADMIN_USER['username']}

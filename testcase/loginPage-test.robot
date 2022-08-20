@@ -18,6 +18,7 @@ ${password}     ${ADMIN_USER['password']}
 CT01 - Início de Sessão: Login Válido
   [Documentation]  Validar Login
   [Tags]           Regressão  Login
-  Login no SIGT    ${username}   ${password}
-  Login com Sucesso
+  Given Login no SIGT    ${username}   ${password}
+  When Login com Sucesso
+  Then Close Browser
 

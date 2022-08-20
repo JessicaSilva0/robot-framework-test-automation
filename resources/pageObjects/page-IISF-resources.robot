@@ -4,7 +4,13 @@ Resource    ./resources/pageObjects/menus.robot
 Resource    ./resources/pageObjects/page-IISF.robot
 
 
+
 *** Variables ***
+${IndResidencia}    ${INFORMACOES_GERAIS['IndResidencia']}
+${IndSociedade}     ${INFORMACOES_GERAIS['IndSociedade']}
+${RegTributacao}    ${INFORMACOES_GERAIS['RegTributacao']}
+${file}             ${path}
+
 ${frame_uiMap}   name:uiMap
 ${frame_main}    name:main
 ${NAME_declaracao}   css=body > span
@@ -34,11 +40,48 @@ ${CHECK_CM_IISF_TAXPAY_NONE}                 id=boGroup_taxpayerDetails_none_asC
 ${CM_IISF_TAXPAYE_DETAIL}                    id=boGroup_taxpayerDetails_detailOfOther_asCurrent
 ${CM_IISF_TAXPAYE_BRIEFDE}                   id=boGroup_taxpayerDetails_briefDescrOfBenefitContent_asCurrent
 # Informações Gerais - Anexar Documentos ref. Beneficios
-${CM_IIRG_DOCUMEN_FILENAM}                   id=new_uploadFile_fileData_fileName_0
+${escolherArquivo_0}                         id=new_uploadFile_fileData_fileName_0
+${AdicionarArquivo_btn_0}                    id=fileName_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Demonstração de Resultados por Natureza
+${escolherArquivo_1}                         id=new_uploadFile_fileData_fileNameIncomeStatement_0
+${AdicionarArquivo_btn_1}                    id=fileNameIncomeStatement_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Demonstração de Fluxo de Caixa
+${escolherArquivo_2}                         id=new_uploadFile_fileData_fileNameFlow_0
+${AdicionarArquivo_btn_2}                    id=fileNameFlow_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Balanço
+${escolherArquivo_3}                         id=new_uploadFile_fileData_fileNameBalance_0
+${AdicionarArquivo_btn_3}                    id=fileNameBalance_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Balancete de Razão
+${escolherArquivo_4}                         id=new_uploadFile_fileData_fileNameBalanceSheet_0
+${AdicionarArquivo_btn_4}                    id=fileNameBalanceSheet_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Balancete Geral Analítico
+${escolherArquivo_5}                         id=new_uploadFile_fileData_fileNameAnalytical_0
+${AdicionarArquivo_btn_5}                    id=fileNameAnalytical_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Relatório Técnico Assinado pelo Contabilista
+${escolherArquivo_6}                         id=new_uploadFile_fileData_fileNameSignedTechnical_0
+${AdicionarArquivo_btn_6}                    id=fileNameSignedTechnical_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Relatório Técnico Assinado pelo Contabilista
+${escolherArquivo_7}                         id=new_uploadFile_fileData_fileNameReintegrationMap_0
+${AdicionarArquivo_btn_7}                    id=fileNameReintegrationMap_upload_button_0
+
+# Informações Gerais - Anexar Documentos ref. Outros Documentos
+${escolherArquivo_8}                         id=new_uploadFile_fileData_fileNameOtherDocuments_0
+${AdicionarArquivo_btn_8}                    id=fileNameOtherDocuments_upload_button_0
+
+
 # Informações Gerais - Mapas Anexos à Declaração
 ${CM_IISF_TAXPAY_ANEXOA}                     id=boGroup_taxpayerDetails_annexAResults_asCurrent
 ${CM_IISF_TAXPAY_ANEXOB}                     id=boGroup_taxpayerDetails_annexBGroupOfCompanies_asCurrent
 ${CM_IISF_TAXPAY_ANEXOC}                     id=boGroup_taxpayerDetails_annexCComplementary_asCurrent
+
+
 # Informações Gerais - Identificação do Representante Legal
 ${REP_LEGAL_PESQUISAR_NIF}                   id=boGroup_taxpayerDetails_legalNif_asCurrent_search
 
@@ -60,8 +103,62 @@ Adicionar nova Declaração
     [Arguments]     ${locator}
     click element   ${locator}
 
+Anexar Documentos
+     [Arguments]    ${locator}    ${file}
+     choose file    ${locator}    ${file}
+
+Adicionar Documentos
+     [Arguments]    ${locator}
+     click element  ${locator}
+
 Preencher seção Motivo
      select from list by value         ${TIPO_ORIGEM}             ${OPTION_TIPO_ORIGEM.Contribuinte}
      select from list by value         ${TIPO_CARACTERISTICA}     ${OPTION_TIPO_CARACTERISTICA.Declaracao_do_Periodo}
      select from list by value         ${TIPO_MOTIVO}             ${OPTION_TIPO_MOTIVO.Iniciativa_do_Contribuinte}
-     select from list by value         ${ANO_EXERCICIO}           2021
+     select from list by value         ${ANO_EXERCICIO}           ${OPTION_ANO_EXERCICIO.exercicio_2021}
+
+Preencher seção Informações Gerais
+       Pesquisar NIF                   ${PESQUISAR_NIF}
+       Switch Window                   Pesquisa a 360 Graus
+       selecionar main frame
+       selecionar ui frame
+       select from list by value       ${TIPO_RESIDENCIA}         ${IndResidencia}
+       select from list by value       ${TIPO_SOCIEDADE}          ${IndSociedade}
+       select from list by value       ${TIPO_TRIB_SOCIEDADE}     ${RegTributacao}
+#Validar checkbox Beneficios Fiscais
+       select checkbox                 ${CHECK_CM_IISF_TAXPAY_PRIVAT}
+# Informações Gerais - Anexar Documentos ref. Beneficios
+       Anexar Documentos               ${escolherArquivo_0}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_0}
+
+# Informações Gerais - Anexar Documentos ref. Demonstração de Resultados por Natureza
+       Anexar Documentos               ${escolherArquivo_1}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_1}
+
+# Informações Gerais - Anexar Documentos ref. Demonstração de Fluxo de Caixa
+       Anexar Documentos               ${escolherArquivo_2}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_2}
+
+# Informações Gerais - Anexar Documentos ref. Balanço
+       Anexar Documentos               ${escolherArquivo_3}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_3}
+
+# Informações Gerais - Anexar Documentos ref. Balancete de Razão
+       Anexar Documentos               ${escolherArquivo_4}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_4}
+
+# Informações Gerais - Anexar Documentos ref. Balancete Geral Analítico
+       Anexar Documentos               ${escolherArquivo_5}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_5}
+
+# Informações Gerais - Anexar Documentos ref. Relatório Técnico Assinado pelo Contabilista
+       Anexar Documentos               ${escolherArquivo_6}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_6}
+
+# Informações Gerais - Anexar Documentos ref. Mapa de Reintegrações e Amortizações
+       Anexar Documentos               ${escolherArquivo_7}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_7}
+
+# Informações Gerais - Anexar Documentos ref. Outros Documentos
+       Anexar Documentos               ${escolherArquivo_8}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_8}

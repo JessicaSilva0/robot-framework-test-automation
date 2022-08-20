@@ -27,10 +27,23 @@ ${frame_uiMap}   name:uiMap
 ...    Notificacao=NOTF
 
 &{OPTION_ANO_EXERCICIO}
-...    '2020'=2020
-...    '2021'=2021
-...    '2022'=2022
+...    exercicio_2020=2020
+...    exercicio_2021=2021
+...    exercicio_2022=2022
 
+${OPTION_TIPO_RESIDENCIA}
+...     Residente=RESD
+...     NaoResidente=NRES
+
+${OPTION_TIPO_SOCIEDADE}
+...    Cisão=CISA
+...    fusao=FUSA
+...    nada=NAOA
+
+${OPTION_TIPO_TRIB_SOCIEDADE}
+...    Cisão=CISA
+...    fusao=FUSA
+...    nada=NAOA
 
 *** Keywords ***
 Dado que seleciono o Menu de Imposto Industrial
@@ -45,6 +58,7 @@ Então o sistema deve abrir o formulário da declaração
 
 Dado o preenchimento dos campos da declaração dentro do prazo
     Preencher seção Motivo
+    Preencher seção Informações Gerais
 E clicar no botão Validar
 Quando clicar no botão Publicar
 Então o sistema deverá alterar o estado para Publicado
