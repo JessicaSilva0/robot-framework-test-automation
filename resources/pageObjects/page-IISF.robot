@@ -1,13 +1,36 @@
 *** Setting ***
 Library    SeleniumLibrary
 Resource    ./resources/pageObjects/menus.robot
-Resource    ../resources/pageObjects/frames-resources.robot
-Resource    ../resources/pageObjects/page-IISF-resources.robot
+Resource    ./resources/pageObjects/frames-resources.robot
+Resource    ./resources/pageObjects/page-IISF-resources.robot
 
 
 *** Variables ***
 ${frame_Main}    name:main
 ${frame_uiMap}   name:uiMap
+&{OPTION_TIPO_ORIGEM}
+...    Contribuinte=CONT
+...    Oficiosa=OFCS
+
+&{OPTION_TIPO_CARACTERISTICA}
+...    1_Declaracao_Inicio_1Sem=C1
+...    1_Declaracao_Inicio_2Sem=C2
+...    Declaracao_do_Periodo=C3
+...    Declaracao_de_Substituicao=C4
+...    Declaracao_do_Periodo_de_Cessacao_1Sem=C5
+...    Declaracao_do_Periodo_de_Cessacao_2Sem=C6
+...    Declaracao_Oficiosa=C7
+...    Declaracao_de_Correcção=C8
+
+&{OPTION_TIPO_MOTIVO}
+...    Iniciativa_do_Contribuinte=CONT
+...    Notificacao=NOTF
+
+&{OPTION_ANO_EXERCICIO}
+...    '2020'=2020
+...    '2021'=2021
+...    '2022'=2022
+
 
 *** Keywords ***
 Dado que seleciono o Menu de Imposto Industrial
@@ -18,3 +41,10 @@ Quando clicar no Botão Adicionar
     Adicionar nova Declaração                                   ${SUBMENU_II_RegimegeralFinanceiro_ADD}
 Então o sistema deve abrir o formulário da declaração
     Selecionar ui frame
+
+
+Dado o preenchimento dos campos da declaração dentro do prazo
+    Preencher seção Motivo
+E clicar no botão Validar
+Quando clicar no botão Publicar
+Então o sistema deverá alterar o estado para Publicado

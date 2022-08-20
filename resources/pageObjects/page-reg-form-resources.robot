@@ -72,7 +72,9 @@ Adicionar novo Formulário
 Pesquisar Formulários
     [Arguments]     ${locator}
     click element   ${locator}
-
+Click nav form - Detalhes de Registo
+    [Documentation]    Ir para Section Detalhes de Registo pelo NavForm
+    click element    ${NAV_FORM_REG_DETAILS}
 Click nav form - Show All
     [Documentation]    Clicar em mostrar todos
     click element      ${SHOWALL}

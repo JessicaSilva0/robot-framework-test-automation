@@ -3,6 +3,7 @@ Documentation    SIGT - Imposto Industrial Declaração Anual
 
 Library    SeleniumLibrary
 Library    Collections
+Library    ScreenCapLibrary
 Resource     ../resources/pageObjects/page-login.robot
 Resource     ../resources/pageObjects/page-login-resources.robot
 Resource     ../resources/pageObjects/page-IISF-resources.robot
@@ -12,8 +13,8 @@ Variables    ../variables/%{ENVIRONMENT}/credentials.py
 Variables    ../variables/%{ENVIRONMENT}/url-variable.py
 Variables    ../variables/%{ENVIRONMENT}/config-browser-variable.py
 
-Test Setup        Login no SIGT   ${username}    ${password}
-Test Teardown     Close Browser
+Suite Setup        Login no SIGT   ${username}    ${password}
+Suite Teardown     Close Browser
 
 *** Variables ***
 ${username}     ${ADMIN_USER['username']}
@@ -27,3 +28,8 @@ CT01 - Validar Abertura de Declaração Anual de II
   Dado que seleciono o Menu de Imposto Industrial
   Quando clicar no Botão Adicionar
   Então o sistema deve abrir o formulário da declaração
+
+CT02 - Contribuinte - Entregar declaração do período dentro do prazo
+  [Documentation]  Entrega de Declaração Anual Dentro do prazo
+  [Tags]           Regressão  ImpostoIndustrial
+  Dado o preenchimento dos campos da declaração dentro do prazo

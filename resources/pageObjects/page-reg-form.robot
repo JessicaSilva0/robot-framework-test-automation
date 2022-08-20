@@ -1,7 +1,7 @@
 *** Setting ***
 Library    SeleniumLibrary
 Resource    ./resources/pageObjects/menus.robot
-Resource    ./resources/pageObjects/page-reg-form-resources.robot
+Resource    ../resources/pageObjects/page-reg-form-resources.robot
 
 *** Variables ***
 ${frame_Main}    name:main

@@ -1,7 +1,7 @@
 *** Setting ***
 Library    SeleniumLibrary
-Resource    ../resources/pageObjects/menus.robot
-Resource    ../resources/pageObjects/page-IISF.robot
+Resource    ./resources/pageObjects/menus.robot
+Resource    ./resources/pageObjects/page-IISF.robot
 
 
 *** Variables ***
@@ -16,6 +16,7 @@ ${SUBMENU_II_RegimegeralFinanceiro_ADD}      xpath://*[@id="cmIISFTaxFormTabMenu
 ${TIPO_ORIGEM}                               id=boGroup_motive_origin_asCurrent
 ${TIPO_CARACTERISTICA}                       id=boGroup_motive_charForm_asCurrent
 ${TIPO_MOTIVO}                               id=boGroup_motive_motive_asCurrent
+${ANO_EXERCICIO}                             id=boGroup_motive_year_asCurrent
 
 # Informações Gerais
 ${PESQUISAR_NIF}                             id=boGroup_taxpayerDetails_nif_asCurrent_search
@@ -59,15 +60,8 @@ Adicionar nova Declaração
     [Arguments]     ${locator}
     click element   ${locator}
 
-Selecionar main frame
-    [Documentation]    Selecionar a pagina principal
-    wait until element is visible               ${frame_main}
-    select frame                                ${frame_main}
-
-Selecionar ui frame
-    [Documentation]    Selecionar frame da declaração
-    wait until element is visible               ${frame_uiMap}
-    select frame                                ${frame_uiMap}
-    Current Frame Should Contain   Annual Declaration of the General Regime (Financial Sector)
-    Capture Page Screenshot
-
+Preencher seção Motivo
+     select from list by value         ${TIPO_ORIGEM}             ${OPTION_TIPO_ORIGEM.Contribuinte}
+     select from list by value         ${TIPO_CARACTERISTICA}     ${OPTION_TIPO_CARACTERISTICA.Declaracao_do_Periodo}
+     select from list by value         ${TIPO_MOTIVO}             ${OPTION_TIPO_MOTIVO.Iniciativa_do_Contribuinte}
+     select from list by value         ${ANO_EXERCICIO}           2021
