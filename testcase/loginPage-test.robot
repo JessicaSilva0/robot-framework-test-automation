@@ -15,7 +15,7 @@ ${username}     ${ADMIN_USER['username']}
 ${password}     ${ADMIN_USER['password']}
 
 *** Test Cases ***
-CT01 - page-login: Login Válido
+CT01 - Início de Sessão: Login Válido
   [Documentation]  Validar Login
   [Tags]           Regressão  Login
   Login no SIGT    ${username}   ${password}
