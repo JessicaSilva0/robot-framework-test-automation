@@ -11,8 +11,8 @@ ${selecionar_NIF}    id=idValue
 ${pesquisar_btn}     id=anTLZ1Refresh
 
 *** Keywords ***
-Selecionar main frame
-    [Documentation]    Selecionar a pagina principal
+Selecionar a Estrutura Principal
+    [Documentation]    Selecionar a pagina principal (main frame)
     wait until element is visible               ${frame_main}
     select frame                                ${frame_main}
 

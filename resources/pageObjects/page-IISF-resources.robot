@@ -111,6 +111,62 @@ Adicionar Documentos
      [Arguments]    ${locator}
      click element  ${locator}
 
+Pesquisar NIF - Representante Legal
+     [Arguments]    ${locator}
+     click element  ${locator}
+
+Tecnico de Contas - NIF
+     [Arguments]    ${locator}
+     click element  ${locator}
+
+Documentos a Anexar - Demonstração de Resultados por Natureza
+     Anexar Documentos               ${escolherArquivo_1}    ${file}
+     Adicionar Documentos            ${AdicionarArquivo_btn_1}
+
+Documentos a Anexar - Beneficios
+       Anexar Documentos               ${escolherArquivo_0}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_0}
+
+Documentos a Anexar - Demonstração de Fluxo de Caixa
+       Anexar Documentos               ${escolherArquivo_2}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_2}
+
+Documentos a Anexar - Balanço
+       Anexar Documentos               ${escolherArquivo_3}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_3}
+
+Documentos a Anexar - Balancete de Razão
+       Anexar Documentos               ${escolherArquivo_4}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_4}
+
+Documentos a Anexar - Balancete Geral Analítico
+       Anexar Documentos               ${escolherArquivo_5}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_5}
+
+Documentos a Anexar - Relatório Técnico Assinado pelo Contabilista
+       Anexar Documentos               ${escolherArquivo_6}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_6}
+
+Documentos a Anexar - Mapa de Reintegrações e Amortizações
+       Anexar Documentos               ${escolherArquivo_7}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_7}
+
+Documentos a Anexar - Outros Documentos
+       Anexar Documentos               ${escolherArquivo_8}    ${file}
+       Adicionar Documentos            ${AdicionarArquivo_btn_8}
+
+Indicador de Residencia
+     select from list by value       ${TIPO_RESIDENCIA}         ${IndResidencia}
+
+Incorporação de Sociedades
+     select from list by value       ${TIPO_SOCIEDADE}          ${IndSociedade}
+
+Regime de Tributação
+     select from list by value       ${TIPO_TRIB_SOCIEDADE}     ${RegTributacao}
+
+Tipo de Benefícios Fiscais Abrangidos
+     select checkbox                 ${CHECK_CM_IISF_TAXPAY_PRIVAT}
+
 Preencher seção Motivo
      select from list by value         ${TIPO_ORIGEM}             ${OPTION_TIPO_ORIGEM.Contribuinte}
      select from list by value         ${TIPO_CARACTERISTICA}     ${OPTION_TIPO_CARACTERISTICA.Declaracao_do_Periodo}
@@ -120,45 +176,23 @@ Preencher seção Motivo
 Preencher seção Informações Gerais
        Pesquisar NIF                   ${PESQUISAR_NIF}
        Switch Window                   Pesquisa a 360 Graus
-       selecionar main frame
+       Selecionar a Estrutura Principal
        selecionar ui frame
-       select from list by value       ${TIPO_RESIDENCIA}         ${IndResidencia}
-       select from list by value       ${TIPO_SOCIEDADE}          ${IndSociedade}
-       select from list by value       ${TIPO_TRIB_SOCIEDADE}     ${RegTributacao}
-#Validar checkbox Beneficios Fiscais
-       select checkbox                 ${CHECK_CM_IISF_TAXPAY_PRIVAT}
-# Informações Gerais - Anexar Documentos ref. Beneficios
-       Anexar Documentos               ${escolherArquivo_0}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_0}
+       Indicador de Residencia
+       Incorporação de Sociedades
+       Regime de Tributação
+       Tipo de Benefícios Fiscais Abrangidos
+       Documentos a Anexar - Beneficios
+       Documentos a Anexar - Demonstração de Resultados por Natureza
+       Documentos a Anexar - Demonstração de Fluxo de Caixa
+       Documentos a Anexar - Balanço
+       Documentos a Anexar - Balancete de Razão
+       Documentos a Anexar - Balancete Geral Analítico
+       Documentos a Anexar - Relatório Técnico Assinado pelo Contabilista
+       Documentos a Anexar - Mapa de Reintegrações e Amortizações
+       Documentos a Anexar - Outros Documentos
+#Representante Legal
+       Pesquisar NIF - Representante Legal              ${REP_LEGAL_PESQUISAR_NIF}
+       Tecnico de Contas - NIF                          ${TEC_CONTAS_PESQUISAR_NIF}
 
-# Informações Gerais - Anexar Documentos ref. Demonstração de Resultados por Natureza
-       Anexar Documentos               ${escolherArquivo_1}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_1}
 
-# Informações Gerais - Anexar Documentos ref. Demonstração de Fluxo de Caixa
-       Anexar Documentos               ${escolherArquivo_2}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_2}
-
-# Informações Gerais - Anexar Documentos ref. Balanço
-       Anexar Documentos               ${escolherArquivo_3}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_3}
-
-# Informações Gerais - Anexar Documentos ref. Balancete de Razão
-       Anexar Documentos               ${escolherArquivo_4}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_4}
-
-# Informações Gerais - Anexar Documentos ref. Balancete Geral Analítico
-       Anexar Documentos               ${escolherArquivo_5}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_5}
-
-# Informações Gerais - Anexar Documentos ref. Relatório Técnico Assinado pelo Contabilista
-       Anexar Documentos               ${escolherArquivo_6}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_6}
-
-# Informações Gerais - Anexar Documentos ref. Mapa de Reintegrações e Amortizações
-       Anexar Documentos               ${escolherArquivo_7}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_7}
-
-# Informações Gerais - Anexar Documentos ref. Outros Documentos
-       Anexar Documentos               ${escolherArquivo_8}    ${file}
-       Adicionar Documentos            ${AdicionarArquivo_btn_8}

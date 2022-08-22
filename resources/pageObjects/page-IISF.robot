@@ -46,17 +46,17 @@ ${OPTION_TIPO_TRIB_SOCIEDADE}
 ...    nada=NAOA
 
 *** Keywords ***
-Dado que seleciono o Menu de Imposto Industrial
+seleciono o Menu de Imposto Industrial
     Open Menu
     Open SubMenu - Modelo 1 - Regime Geral (Sector Financeiro)  ${MENU_II}
     Selecionar Item - Regime Geral (Sector Financeiro)          ${SUBMENU_II_RegimegeralFinanceiro}
-Quando clicar no Botão Adicionar
+clicar no Botão Adicionar
     Adicionar nova Declaração                                   ${SUBMENU_II_RegimegeralFinanceiro_ADD}
-Então o sistema deve abrir o formulário da declaração
+o sistema deve abrir o formulário da declaração
     Selecionar ui frame
 
 
-Dado o preenchimento dos campos da declaração dentro do prazo
+preenchimento dos campos da declaração dentro do prazo
     Preencher seção Motivo
     Preencher seção Informações Gerais
 E clicar no botão Validar
