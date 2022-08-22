@@ -21,6 +21,7 @@ Suite Setup        Login no SIGT   ${username}    ${password}
 ${username}     ${ADMIN_USER['username']}
 ${password}     ${ADMIN_USER['password']}
 
+
 *** Test Cases ***
 CT01 - Validar Abertura de Declaração Anual de II
   [Documentation]  Imposto Industrial - Abertura da Declaração

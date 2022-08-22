@@ -4,18 +4,10 @@ Resource    ./resources/pageObjects/menus.robot
 Resource    ./resources/pageObjects/page-IISF.robot
 
 
-
 *** Variables ***
-${IndResidencia}    ${INFORMACOES_GERAIS['IndResidencia']}
-${IndSociedade}     ${INFORMACOES_GERAIS['IndSociedade']}
-${RegTributacao}    ${INFORMACOES_GERAIS['RegTributacao']}
-${file}             ${path}
-
-${frame_uiMap}   name:uiMap
-${frame_main}    name:main
-${NAME_declaracao}   css=body > span
+${file}                ${path}
 ${MENU_II}                                   xpath://*[contains(text(), "II")]
-${SUBMENU_II_RegimegeralFinanceiro}          xpath://*[contains(text(), "Modelo 1 - General Regime (Financial Sector)")]
+${SUBMENU_II_RegimegeralFinanceiro}          xpath://*[contains(text(), "Modelo 1 - Regime Geral (Setor Financeiro)")]
 ${SUBMENU_II_RegimegeralFinanceiro_ADD}      xpath://*[@id="cmIISFTaxFormTabMenuAdd"]
 
 # Motivo
@@ -111,13 +103,12 @@ Adicionar Documentos
      [Arguments]    ${locator}
      click element  ${locator}
 
-Pesquisar NIF - Representante Legal
-     [Arguments]    ${locator}
-     click element  ${locator}
+Selecionar NIF - Representante Legal
+     click element  ${REP_LEGAL_PESQUISAR_NIF}
+     sleep    5
 
-Tecnico de Contas - NIF
-     [Arguments]    ${locator}
-     click element  ${locator}
+Selecionar NIF - Tecnico de Contas
+     click element  ${TEC_CONTAS_PESQUISAR_NIF}
 
 Documentos a Anexar - Demonstração de Resultados por Natureza
      Anexar Documentos               ${escolherArquivo_1}    ${file}
@@ -155,29 +146,39 @@ Documentos a Anexar - Outros Documentos
        Anexar Documentos               ${escolherArquivo_8}    ${file}
        Adicionar Documentos            ${AdicionarArquivo_btn_8}
 
+Origem da Declaração
+     select from list by value         ${TIPO_ORIGEM}             ${CT02['Origem']}
+Caracteristica
+     select from list by value         ${TIPO_CARACTERISTICA}     ${CT02['Caracteristica']}
+Motivo
+     select from list by value         ${TIPO_MOTIVO}             ${CT02['Motivo']}
+Ano Exercício
+     select from list by value         ${ANO_EXERCICIO}           ${CT02['Ano']}
+
 Indicador de Residencia
-     select from list by value       ${TIPO_RESIDENCIA}         ${IndResidencia}
-
+     select from list by value       ${TIPO_RESIDENCIA}         ${CT02['IndResidencia']}
 Incorporação de Sociedades
-     select from list by value       ${TIPO_SOCIEDADE}          ${IndSociedade}
-
+     select from list by value       ${TIPO_SOCIEDADE}          ${CT02['IndSociedade']}
 Regime de Tributação
-     select from list by value       ${TIPO_TRIB_SOCIEDADE}     ${RegTributacao}
+     select from list by value       ${TIPO_TRIB_SOCIEDADE}     ${CT02['RegTribSociedade']}
 
 Tipo de Benefícios Fiscais Abrangidos
      select checkbox                 ${CHECK_CM_IISF_TAXPAY_PRIVAT}
 
-Preencher seção Motivo
-     select from list by value         ${TIPO_ORIGEM}             ${OPTION_TIPO_ORIGEM.Contribuinte}
-     select from list by value         ${TIPO_CARACTERISTICA}     ${OPTION_TIPO_CARACTERISTICA.Declaracao_do_Periodo}
-     select from list by value         ${TIPO_MOTIVO}             ${OPTION_TIPO_MOTIVO.Iniciativa_do_Contribuinte}
-     select from list by value         ${ANO_EXERCICIO}           ${OPTION_ANO_EXERCICIO.exercicio_2021}
-
-Preencher seção Informações Gerais
-       Pesquisar NIF                   ${PESQUISAR_NIF}
+Retornar para a Declaração
        Switch Window                   Pesquisa a 360 Graus
        Selecionar a Estrutura Principal
        selecionar ui frame
+
+Section - Motivo
+     Origem da Declaração
+     Caracteristica
+     Motivo
+     Ano Exercício
+
+Section - Informações Gerais
+       Abrir pop-up - Pesquisar NIF                   ${PESQUISAR_NIF}
+       Retornar para a Declaração
        Indicador de Residencia
        Incorporação de Sociedades
        Regime de Tributação
@@ -192,7 +193,7 @@ Preencher seção Informações Gerais
        Documentos a Anexar - Mapa de Reintegrações e Amortizações
        Documentos a Anexar - Outros Documentos
 #Representante Legal
-       Pesquisar NIF - Representante Legal              ${REP_LEGAL_PESQUISAR_NIF}
-       Tecnico de Contas - NIF                          ${TEC_CONTAS_PESQUISAR_NIF}
+       Selecionar NIF - Representante Legal
+       Selecionar NIF - Tecnico de Contas
 
 
