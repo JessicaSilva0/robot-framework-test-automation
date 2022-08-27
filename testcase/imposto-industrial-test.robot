@@ -27,11 +27,12 @@ CT01 - Validar Abertura de Declaração Anual de II
   [Documentation]  Imposto Industrial - Abertura da Declaração
   [Tags]           Regressão  ImpostoIndustrial
   Selecionar a Estrutura Principal
-  Given seleciono o Menu de Imposto Industrial
-  When clicar no Botão Adicionar
-  Then o sistema deve abrir o formulário da declaração
+  Dado que seleciono o Menu de Imposto Industrial
+  Quando clicar no Botão Adicionar
+  Então o sistema deve abrir o formulário da declaração
 
 CT02 - Contribuinte - Entregar declaração do período dentro do prazo
   [Documentation]  Entrega de Declaração Anual Dentro do prazo
   [Tags]           Regressão  ImpostoIndustrial
-  Given preenchimento dos campos da declaração dentro do prazo
+  Dado o preenchimento dos campos da declaração dentro do prazo
+  E clicar no botão Verificar Formulário

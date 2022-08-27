@@ -16,7 +16,7 @@ Selecionar ui frame
     [Documentation]    Selecionar frame da declaração
     wait until element is visible               ${frame_uiMap}
     select frame                                ${frame_uiMap}
-    Current Frame Should Contain   Annual Declaration of the General Regime (Financial Sector)
+    Get Title
     Capture Page Screenshot
 
 
