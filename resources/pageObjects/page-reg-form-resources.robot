@@ -4,13 +4,14 @@ Resource    ./resources/pageObjects/page-reg-form.robot
 Resource    ./resources/pageObjects/menus.robot
 
 *** Variables ***
-${MENU_FORM}             id=CI_MAINMENU_topMenuItem0x7  #Formulários
-${SUBMENU_FORM}          id=CI_FORM_subMenuItem2x3      #Formulários de Cadastro
-${SUBMENU_ITEM_ADD}      id=cmregaddTabMenu             #Formulários de Cadastro - Adicionar
+${MENU_FORM}             xpath://*[contains(text(), "Formulários")]                 #Formulários
+${SUBMENU_FORM}          xpath://*[contains(text(), "Formulário de Cadastro")]      #Formulários de Cadastro
+${SUBMENU_ITEM_ADD}      xpath://*[@id="cmregaddTabMenu"]                   #Formulários de Cadastro - Adicionar
 ${SUBMENU_ITEM_SEARCH}   id=c1fusqTabMenu               #Formulários de Cadastro - Pesquisar
 
 
 # Navegação do Formulário
+${SHOWALL}                        xpath=//tr[24]/td/a/span
 ${NAV_FORM_MAIN}                  id=mainNavRow
 ${NAV_FORM_REG_DETAILS}           id=registrationDetailsNavRow
 ${NAV_FORM_ENQ_IMPOSTOS}          id=taxFramingSectionNavRow
@@ -71,6 +72,12 @@ Adicionar novo Formulário
 Pesquisar Formulários
     [Arguments]     ${locator}
     click element   ${locator}
+Click nav form - Detalhes de Registo
+    [Documentation]    Ir para Section Detalhes de Registo pelo NavForm
+    click element    ${NAV_FORM_REG_DETAILS}
+Click nav form - Show All
+    [Documentation]    Clicar em mostrar todos
+    click element      ${SHOWALL}
 
 Click nav form - Principal
     [Documentation]    Ir para Section Principal pelo NavForm
@@ -80,9 +87,9 @@ Click nav form - Detalhes de Registo
     [Documentation]    Ir para Section Detalhes de Registo pelo NavForm
     click element    ${NAV_FORM_REG_DETAILS}
 
-Click nav form - Enquadramento em Impostos
-    [Documentation]    Ir para Section Detalhes de Registo pelo NavForm
-    click element    ${NAV_FORM_ENQ_IMPOSTOS}
+#Click nav form - Enquadramento em Impostos
+#    [Documentation]    Ir para Section Detalhes de Registo pelo NavForm
+#    click element    ${NAV_FORM_ENQ_IMPOSTOS}
 
 Click nav form - Representação Fiscal
     [Documentation]    Ir para Section Rep Fiscal pelo NavForm
@@ -161,6 +168,8 @@ Preencher Detalhes de Registo
 
 Preencher Enquadramento em Impostos
     select from list by value          ${TIPO_REG_II}         ${OPTION_TIPO_REG_II.RegimeGeral}
-#   select from list by value          ${TIPO_GROUP_IRT}      ${OPTION_TIPO_GROUP_IRT.C}
-    select from list by value          ${TIPO_TRIB_IAC}       ${OPTION_TIPO_TRIB_IAC.nao}
-    select from list by value          ${TIPO_TRIB_IEC}       ${OPTION_TIPO_TRIB_IEC.nao}
+   #select from list by value          ${TIPO_GROUP_IRT}      ${OPTION_TIPO_GROUP_IRT.B}
+   # select from list by value          ${TIPO_TRIB_IAC}       ${OPTION_TIPO_TRIB_IAC.nao}
+   # select from list by value          ${TIPO_TRIB_IEC}       ${OPTION_TIPO_TRIB_IEC.nao}
+
+Preencher Identificação de Contribuinte Colectivo

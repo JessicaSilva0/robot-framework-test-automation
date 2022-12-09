@@ -1,10 +1,13 @@
-lxml==4.6.1
 python-dateutil==2.8.1
 requests==2.22.0
-robotframework==3.2.2
+robotframework==5.0.1
 robotframework-pythonlibcore==2.1.0
-robotframework-screencaplibrary==1.4.1
+robotframework-screencaplibrary==1.6.0
 robotframework-seleniumlibrary==4.5.0
 robotframework-sshlibrary==3.8.0
 selenium==3.141.0
 webdrivermanager==0.9.0
+jsonpath-ng>=1.5.0
+jsonschema>=3.2.0
+setuptools>=39.1.0
+robotframework-jsonlibrary>=0.4.1

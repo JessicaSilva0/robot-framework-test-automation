@@ -1,4 +1,7 @@
 *** Setting ***
+
+Test Teardown  Close Browser
+
 Documentation    Formulário de Cadastro
 Library    SeleniumLibrary
 Resource    ../resources/pageObjects/page-reg-form-resources.robot
