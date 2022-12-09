@@ -1,4 +1,4 @@
-# Utilizado no TC: IRT-test.robot
+# Utilizado no TC: unitTests-DeclaracaoAnual.robot
 
 NIF_FINANCEIRO = {'NIF': "5005006228"}
 
@@ -14,14 +14,12 @@ INFORMACOES_GERAIS = {
     'RegTribSociedade': ['DAND', 'DNTE', 'NAOA'],  # DAND=Dominada, DNTE=Dominante, Nao Aplicavel=NAOA
 }
 
-CT02 = {
+CT01 = {
     'Origem': "CONT",
     'Caracteristica': "C3",
     'Motivo': "CONT",
     'Ano': "2021",
-    'IndResidencia': "RESD",
-    'IndSociedade': "NAOA",
-    'RegTribSociedade': "NAOA"
+    'IndiResidencia': "NRES"
 }
 
 path = "/home/jessica-silva/Imagens/Screenshot-5.png"

@@ -1,4 +1,4 @@
-# Utilizado no TC: imposto-industrial-test.robot
+# Utilizado no TC: e2e-DeclaracaoAnual.robot
 
 NIF_FINANCEIRO = {'NIF': "5005006228"}
 

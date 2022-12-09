@@ -3,7 +3,6 @@ Library    SeleniumLibrary
 Resource    ./resources/pageObjects/menus.robot
 Resource    ./resources/pageObjects/IRT/page-IRT.robot
 
-
 *** Variables ***
 ${file}                ${path}
 ${MENU_IRT}                                   xpath://*[contains(text(), "Declaração Anual de IRT")]
@@ -134,18 +133,26 @@ Documentos a Anexar - Outros Documentos
        Adicionar Documentos            ${AdicionarArquivo_btn_7}
 
 
-Origem da Declaração
-     select from list by value         ${TIPO_ORIGEM}             ${CT02['Origem']}
+Origem
+     select from list by value         ${TIPO_ORIGEM}             ${CT01['Origem']}
 Caracteristica
-     select from list by value         ${TIPO_CARACTERISTICA}     ${CT02['Caracteristica']}
+     select from list by value         ${TIPO_CARACTERISTICA}     ${CT01['Caracteristica']}
 Motivo
-     select from list by value         ${TIPO_MOTIVO}             ${CT02['Motivo']}
+     select from list by value         ${TIPO_MOTIVO}             ${CT01['Motivo']}
 Ano Exercício
-     select from list by value         ${ANO_EXERCICIO}           ${CT02['Ano']}
+     select from list by value         ${ANO_EXERCICIO}           ${CT01['Ano']}
 
 Indicador de Residencia
-     select from list by value       ${TIPO_RESIDENCIA}         ${CT02['IndResidencia']}
+     select from list by value       ${TIPO_RESIDENCIA}          ${CT01['IndiResidencia']}
 
+Indicador de Residencia - Residente
+     select from list by value       ${TIPO_RESIDENCIA}          ${CT03['IndiResidencia']}
+
+
+Validar Indicador de Residencia - Residente
+       Abrir pop-up - Pesquisar NIF                   ${PESQUISAR_NIF}
+       Retornar para a Declaração
+       Indicador de Residencia - Residente
 
 Tipo de Benefícios Fiscais Abrangidos
      select checkbox                 ${CHECK_CM_IISF_TAXPAY_PRIVAT}
@@ -171,7 +178,7 @@ Inserir valor no Exercício Anterior
       Inserir valor no Exercício Anterior    ${L2.1.1}
 
 Section - Motivo
-     Origem da Declaração
+     Origem
      Caracteristica
      Motivo
      Ano Exercício

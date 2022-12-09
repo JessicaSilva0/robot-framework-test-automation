@@ -29,7 +29,7 @@ CT01 - Validar Abertura de Declaração Anual de II
   Dado que seleciono o Menu de IRT
   Então o sistema deve abrir o formulário da declaração
 
-CT02 - Contribuinte - Entregar declaração do período dentro do prazo
+CT02 - Contribuinte - Entregar declaração do período FORA do prazo
   [Documentation]  Entrega de Declaração Anual Dentro do prazo
   [Tags]           Regressão  IRT
   Dado o preenchimento dos campos da declaração dentro do prazo
